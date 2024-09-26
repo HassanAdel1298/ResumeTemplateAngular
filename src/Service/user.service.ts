@@ -8,23 +8,23 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private DB_url="http://localhost:48190/api/User/"; 
+  private DB_url="https://localhost:44372/api/User/"; 
   
-  RegisterUser(userdata: any){ 
+  RegisterUser(Registerdata: any){ 
 
-    return this.http.post( this.DB_url + "Register", userdata );
+    return this.http.post( this.DB_url + "Register", Registerdata );
 
   }
 
-  LoginUser(userdata: any){ 
+  LoginUser(Logindata: any){ 
 
-    return this.http.post( this.DB_url + "Login", userdata );
+    return this.http.post( this.DB_url + "Login", Logindata );
     
   }
 
-  VerifyAccount(userdata: any){ 
+  VerifyAccount(Verifydata: any){ 
 
-    return this.http.post( this.DB_url + "VerifyAccount", userdata );
+    return this.http.post( this.DB_url + "VerifyAccount", Verifydata );
     
   }
 

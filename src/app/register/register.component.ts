@@ -32,8 +32,9 @@ export class RegisterComponent {
   ) {
     this.registrationForm = this.fb.group(
       {
-        name: ['', [Validators.required, Validators.minLength(3),Validators.pattern(/^[^\d]*$/),]],
-        username: [
+        firstName: ['', [Validators.required, Validators.minLength(3),Validators.pattern(/^[^\d]*$/),]],
+        lastName: ['', [Validators.required, Validators.minLength(3),Validators.pattern(/^[^\d]*$/),]],
+        userName: [
           '',
           [
             Validators.required,
@@ -58,9 +59,10 @@ export class RegisterComponent {
           ],
         ],
         confirmPassword: ['', Validators.required],
-        role: ['', Validators.required],
-      },
-      { validator: this.passwordMatchValidator }
+        phoneNumber: ['', Validators.required,Validators.length==11],
+        country: ['', Validators.required],
+        city: ['', Validators.required],
+      }
     );
   }
 

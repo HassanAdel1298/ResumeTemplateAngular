@@ -6,24 +6,24 @@ import { Injectable } from '@angular/core';
 })
 export class SkillService {
 
-  private readonly DB_URL = "http://localhost:48190/api/Skill";
+  private readonly DB_URL = "https://localhost:44372/api/Skill/";
 
   constructor(private readonly myClient:HttpClient) { }
 
   CreateSkill(Skill:any){
-    return this.myClient.post(this.DB_URL+"/CreateSkill",Skill);
+    return this.myClient.post(this.DB_URL+"CreateSkill",Skill);
   }
 
   GetAllSkills(Pagination:any){
-    return this.myClient.post(this.DB_URL+"/GetAllSkills",Pagination);
+    return this.myClient.post(this.DB_URL+"GetAllSkills",Pagination);
   }
 
   GetAllSkillsByUser(Pagination:any){
-    return this.myClient.post(this.DB_URL+"/GetAllSkillsByUser",Pagination);
+    return this.myClient.post(this.DB_URL+"GetAllSkillsByUser",Pagination);
   }
 
   DeleteSkillForUser(SkillID:any){
-    return this.myClient.delete(this.DB_URL+"/DeleteSkillForUser/"+SkillID);
+    return this.myClient.delete(this.DB_URL+"DeleteSkillForUser",SkillID);
   }
-  
+
 }

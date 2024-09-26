@@ -21,7 +21,7 @@ export class VerifyAccountComponent {
   constructor(private fb: FormBuilder, private UserService: UserService, private router: Router) {
     this.verifyForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      OTP: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]]
+      otp: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]]
     });
   }
 

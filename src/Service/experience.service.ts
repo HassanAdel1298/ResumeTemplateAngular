@@ -6,24 +6,24 @@ import { Injectable } from '@angular/core';
 })
 export class ExperienceService {
 
-  private readonly DB_URL = "http://localhost:48190/api/Experience";
+  private readonly DB_URL = "https://localhost:44372/api/Experience/";
 
   constructor(private readonly myClient:HttpClient) { }
 
   CreateExperience(Experience:any){
-    return this.myClient.post(this.DB_URL+"/CreateExperience",Experience);
+    return this.myClient.post(this.DB_URL+"CreateExperience",Experience);
   }
 
   GetAllExperiencesByUser(Pagination:any){
-    return this.myClient.post(this.DB_URL+"/GetAllExperiencesByUser",Pagination);
+    return this.myClient.post(this.DB_URL+"GetAllExperiencesByUser",Pagination);
   }
 
   DeleteExperience(ExperienceID:any){
-    return this.myClient.delete(this.DB_URL+"/DeleteExperience/"+ExperienceID);
+    return this.myClient.delete(this.DB_URL+"DeleteExperience",ExperienceID);
   }
 
   UpdateExperience(Experience:any){
-    return this.myClient.put(this.DB_URL+"/UpdateExperience",Experience);
+    return this.myClient.put(this.DB_URL+"UpdateExperience",Experience);
   }
 
 }

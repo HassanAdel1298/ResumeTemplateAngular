@@ -3,22 +3,30 @@
     <div class="wrapper">
       <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <h1 style="color:black">Sign up</h1>
+        
         <div class="inputbox">
           <div class="inputfield">
-            <input type="text" placeholder="name" formControlName="name">
+            <input type="text" placeholder="First Name" formControlName="firstName">
           </div>
-          <div *ngIf="registrationForm.get('name')?.errors && registrationForm.get('name')?.touched" 
-                 class="form-text text-center text-danger">Username is required and must be  only chars and at least 3 chars </div>
+          <div *ngIf="registrationForm.get('firstName')?.errors && registrationForm.get('firstName')?.touched" 
+                 class="form-text text-center text-danger">first Name is required and must be  only chars and at least 3 chars </div>
         </div>
   
+        <div class="inputbox">
+            <div class="inputfield">
+              <input type="text" placeholder="Last Name" formControlName="lastName">
+            </div>
+            <div *ngIf="registrationForm.get('lastName')?.errors && registrationForm.get('lastName')?.touched" 
+                   class="form-text text-center text-danger">last Name is required and must be  only chars and at least 3 chars </div>
+          </div>
 
 
         <div class="inputbox">
           <div class="inputfield">
-            <input type="text" placeholder="Username" formControlName="username">
+            <input type="text" placeholder="UserName" formControlName="userName">
           </div>
-          <div *ngIf="registrationForm.get('username')?.errors && registrationForm.get('username')?.touched" 
-                 class="form-text text-center text-danger">Username is required and must be at least 3 chars and not space</div>
+          <div *ngIf="registrationForm.get('userName')?.errors && registrationForm.get('userName')?.touched" 
+                 class="form-text text-center text-danger">userName is required and must be at least 3 chars and not space</div>
         </div>
   
 
@@ -44,12 +52,35 @@
         <div class="inputbox">
           <div class="inputfield">
             <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
-            <div *ngIf="registrationForm.get('confirmPassword')?.hasError('passwordMismatch')" class="form-text text-center text-danger">Passwords do not match</div>
+            <div *ngIf="registrationForm.get('confirmPassword')?.hasError('passwordMismatch')" 
+                    class="form-text text-center text-danger">Passwords do not match</div>
             
           </div>
         </div>
       
-        
+        <div class="inputbox">
+            <div class="inputfield">
+              <input type="text" placeholder="Phone Number" formControlName="phoneNumber">
+            </div>
+            <div *ngIf="registrationForm.get('phoneNumber')?.errors && registrationForm.get('phoneNumber')?.touched" 
+                   class="form-text text-center text-danger">phone Number is required and must be only 11 Numbers </div>
+          </div>
+    
+          <div class="inputbox">
+              <div class="inputfield">
+                <input type="text" placeholder="Country" formControlName="country">
+              </div>
+              <div *ngIf="registrationForm.get('country')?.errors && registrationForm.get('country')?.touched" 
+                     class="form-text text-center text-danger">country is required </div>
+            </div>
+
+            <div class="inputbox">
+                <div class="inputfield">
+                  <input type="text" placeholder="City" formControlName="city">
+                </div>
+                <div *ngIf="registrationForm.get('city')?.errors && registrationForm.get('city')?.touched" 
+                       class="form-text text-center text-danger">country is required </div>
+              </div>
         
         <div *ngIf="errormessage"
             class="form-text text-center text-danger">{{errormessage}}
