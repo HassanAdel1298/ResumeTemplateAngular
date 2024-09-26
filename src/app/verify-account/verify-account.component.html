@@ -1,0 +1,37 @@
+<body style="background-image: url('assets/images/login2.jpeg');">
+    <div class="container">
+      <h1>Login</h1>
+  
+      <form [formGroup]="verifyForm" (ngSubmit)="onSubmit()">
+        <div class="inputbox">
+  
+          <input type="text" formControlName="email" placeholder="Email">
+          <div *ngIf="verifyForm.get('email')?.errors && verifyForm.get('email')?.touched" 
+                 class="form-text text-center text-danger">Email is required</div>
+        </div>
+  
+        
+  
+  
+        <div class="inputbox">
+  
+          <input type="password" formControlName="OTP" placeholder="OTP">
+          <div *ngIf="verifyForm.get('OTP')?.errors && verifyForm.get('OTP')?.touched" 
+                 class="form-text text-center text-danger">Password is required and must 6 numbers</div>
+        </div>
+        
+        
+  
+  
+      <div *ngIf="errormessage"
+            class="form-text text-center text-danger">{{errormessage}}</div>
+          
+        <button id="redirectButton" class="button" type="submit"  style="background-color:#55b02baf;">Login</button>
+        <div class="register">
+          <p style="color: black;">Don't Have an Acount? <a routerLink="/Register" style="color: black;">Register</a></p>
+        </div>
+        <span id="span"></span>
+      </form>
+    </div>
+    <span @if(show) class="loader"></span>
+  </body>

@@ -1,0 +1,71 @@
+<body style="background-image: url('assets/images/login2.jpeg');">
+
+    <div class="wrapper">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <h1 style="color:black">Sign up</h1>
+        <div class="inputbox">
+          <div class="inputfield">
+            <input type="text" placeholder="name" formControlName="name">
+          </div>
+          <div *ngIf="registrationForm.get('name')?.errors && registrationForm.get('name')?.touched" 
+                 class="form-text text-center text-danger">Username is required and must be  only chars and at least 3 chars </div>
+        </div>
+  
+
+
+        <div class="inputbox">
+          <div class="inputfield">
+            <input type="text" placeholder="Username" formControlName="username">
+          </div>
+          <div *ngIf="registrationForm.get('username')?.errors && registrationForm.get('username')?.touched" 
+                 class="form-text text-center text-danger">Username is required and must be at least 3 chars and not space</div>
+        </div>
+  
+
+
+        <div class="inputbox">
+          <div class="inputfield">
+            <input type="email" placeholder="Email" formControlName="email">
+          </div>
+          <div *ngIf="registrationForm.get('email')?.errors && registrationForm.get('email')?.touched" 
+                 class="form-text text-center text-danger">Email address must be from'&#64;gmail.com' domain</div>
+        </div>
+
+
+        <div class="inputbox">
+          <div class="inputfield">
+            <input type="password" placeholder="Password" formControlName="password">
+          </div>
+          <div *ngIf="registrationForm.get('password')?.errors && registrationForm.get('password')?.touched" 
+                 class="form-text text-center text-danger">Password is required and must between 6 and 20 chars</div>
+        </div>
+
+
+        <div class="inputbox">
+          <div class="inputfield">
+            <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+            <div *ngIf="registrationForm.get('confirmPassword')?.hasError('passwordMismatch')" class="form-text text-center text-danger">Passwords do not match</div>
+            
+          </div>
+        </div>
+      
+        
+        
+        <div *ngIf="errormessage"
+            class="form-text text-center text-danger">{{errormessage}}
+          </div>
+          
+        <button type="submit" [disabled]="registrationForm.invalid"  style="background-color: #55b02baf;">Sign up</button>
+        
+        
+      </form>
+    </div>
+    <span *ngIf="show" class="loader"></span>
+    <div *ngIf="registrationSuccess" class="success-alert" >
+      Registration successful!
+    </div>
+    </body>
+    
+    
+  
+  
